@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page | HomeSync</title>
+    <link rel="icon" href="images/HomeIcon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Overpass', sans-serif;
+            background-color: #0b0b0b; /* Dark background color */
+        }
+        /* Top bar styling */
+        .top-bar {
+            height: 60px; /* Increased height for better aesthetics */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #121212; /* Dark top bar color */
+            padding: 10px 40px; /* Increased padding for more spacing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for depth */
+        }
+        /* Logo and title styling */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 40px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 10px; /* Spacing between image and text */
+        }
+        .title {
+            font-size: 24px; /* Title size */
+            font-weight: bold; /* Use bold weight */
+            color: #ffffff; /* White color for contrast */
+        }
+        .logo:hover, .title:hover{
+            cursor: pointer;
+        }
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1; /* Allows navbar to take available space */
+        }
+        .navbar a {
+            margin: 0 20px; /* Increased spacing between navbar items */
+            text-decoration: none;
+            color: #ffffff; /* White color for links */
+        }
+        .navbar a:hover {
+            text-decoration: underline; /* Underline effect on hover */
+            color: #74C0FC; /* A bright color for links (cyan) */
+        }
+        /* Login and sign up styling */
+        .login-signup {
+            display: flex;
+            align-items: center;
+        }
+        .login-signup a {
+            margin-left: 20px; /* Spacing between links */
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .login-signup a:hover {
+            text-decoration: underline; /* Underline effect on hover */
+            color: #00bcd4; /* A bright color for links (cyan) */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column; /* Stack elements vertically */
+                height: auto; /* Allow dynamic height */
+                padding: 10px 20px; /* Reduce padding for smaller screens */
+            }
+            .navbar {
+                margin: 10px 0; /* Add spacing for navbar */
+            }
+        }
+    </style>
+    <script>
+        function redirectToHome() {
+            window.location.href = "index.html";
+        }
+        function redirectToLogin(){
+            window.location.href = "login.html"
+        }
+    </script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo" onclick="redirectToHome()">
+            <img src="images/HomeIcon.svg" alt="HomeSync Logo">
+            <div class="title">HomeSync</div>
+        </div>
+        <div class="navbar">   
+            <a href="#" aria-label="Features">Features</a>
+            <a href="#" aria-label="Get-Started">Get Started</a>
+            <a href="#" aria-label="Devices">Devices</a>
+            <a href="#" aria-label="Contact">Contact</a>
+        </div>
+        <div class="login-signup" onclick="redirectToLogin()">
+            <a href="#" aria-label="Login" id="loginButton">Login</a>
+            <a href="#" aria-label="Sign Up" id="signupButton">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

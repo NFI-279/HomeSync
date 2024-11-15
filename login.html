@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Page | HomeSync</title>
+    <link rel="icon" href="images/HomeIcon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script type="module" src="js/supabase.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Overpass', sans-serif;
+            background-color: #0b0b0b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+
+        /* Modal Container */
+        .modal {
+            width: 400px; /* Moderately increased width */
+            background-color: #121212;
+            padding: 30px 25px 35px; /* Adjusted padding */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+            display: none; /* Hidden by default */
+        }
+
+        /* Logo Styling */
+        .modal .logo {
+            margin-bottom: 25px; /* Adjusted margin */
+        }
+        .logo img {
+            width: 60px; /* Adjusted logo size */
+            height: auto;
+        }
+
+        /* Input Field Styling */
+        .modal input[type="text"],
+        .modal input[type="password"],
+        .modal input[type="email"] {
+            width: calc(100% - 30px);
+            padding: 10px; /* Adjusted padding */
+            margin: 10px 0; /* Adjusted margin */
+            border: none;
+            border-bottom: 2px solid #444444;
+            background-color: transparent;
+            color: #ffffff;
+            outline: none;
+            font-size: 15px; /* Adjusted font size */
+        }
+
+        /* Button Styling */
+        .modal button {
+            width: calc(100% - 60px);
+            padding: 10px; /* Adjusted padding */
+            margin-top: 15px; /* Adjusted margin */
+            border: none;
+            border-radius: 4px;
+            background-color: #74C0FC;
+            color: #000000;
+            font-weight: bold;
+            font-size: 15px; /* Adjusted font size */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal button:hover {
+            background-color: #FCB074;
+        }
+
+        /* Text Links */
+        .modal .text-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px; /* Adjusted margin */
+            font-size: 14px; /* Kept font size */
+        }
+
+        .modal a {
+            color: #74C0FC;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .modal a:hover {
+            color: #747CFC;
+        }
+
+        /* Show Modal */
+        .modal.show {
+            display: block;
+        }
+
+        /* The background overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);  /* Slightly dim the background */
+            display: none;  /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;  /* Ensure it's above other content */
+            backdrop-filter: blur(5px); /* Apply blur effect */
+        }
+
+        /* Spinner styles */
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #74c0fc; /* Blue color for the spinner */
+            border-radius: 50%;
+            width: 100px;  /* Spinner size */
+            height: 100px;
+            animation: spin 2s linear infinite; /* Spinner animation */
+        }
+
+        /* Animation for the spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="logo">
+            <img src="images/HomeIcon.svg" alt="HomeSync Logo">
+        </div>
+        <form id="loginForm">
+            <input type="text" placeholder="Email..." required>
+            <input type="password" placeholder="Password..." required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="text-links">
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+            <a href="#" id="showSignUp">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signupModal">
+        <div class="logo">
+            <img src="images/HomeIcon.svg" alt="HomeSync Logo">
+        </div>
+        <form id="signupForm">
+            <input type="text" placeholder="Username..." required>
+            <input type="email" placeholder="Email..." required>
+            <input type="password" placeholder="Password..." required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="text-links">
+            <a href="#" id="showLogin">Already have an account? Log in</a>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="logo">
+            <img src="images/HomeIcon.svg" alt="HomeSync Logo">
+        </div>
+        <form id="forgotPasswordForm">
+            <input type="email" placeholder="Enter your email..." required>
+            <button type="submit">Reset Password</button>
+        </form>
+        <div class="text-links">
+            <a href="#" id="backToLogin">Back to Login</a>
+        </div>
+    </div>
+    
+    <!-- Loading Spinner and Background Overlay (Initially hidden) -->
+    <div id="overlay" class="overlay">
+        <div class="spinner"></div>
+    </div>
+
+
+    <script type="module" src="js/login.js"></script>
+    <script>
+        // Show Login Modal by default
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+
+        loginModal.classList.add('show');
+
+        // Show Sign Up Modal
+        document.getElementById('showSignUp').addEventListener('click', function() {
+            loginModal.classList.remove('show');
+            signupModal.classList.add('show');
+        });
+
+        // Show Login Modal from Sign Up Modal
+        document.getElementById('showLogin').addEventListener('click', function() {
+            signupModal.classList.remove('show');
+            loginModal.classList.add('show');
+        });
+
+        // Show Forgot Password Modal
+        document.getElementById('forgotPassword').addEventListener('click', function() {
+            loginModal.classList.remove('show');
+            forgotPasswordModal.classList.add('show');
+        });
+
+        // Go back to Login Modal from Forgot Password Modal
+        document.getElementById('backToLogin').addEventListener('click', function() {
+            forgotPasswordModal.classList.remove('show');
+            loginModal.classList.add('show');
+        });
+    </script>
+</body>
+</html>
