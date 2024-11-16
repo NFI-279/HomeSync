@@ -10,7 +10,7 @@ async function checkUserSession() {
         console.log('User is logged in:', user);
     } else {
         // If not authenticated, redirect to the login page
-        window.location.href = '/login.html'; // Change this to your login page URL
+        window.location.href = './login.html';
     }
 }
 

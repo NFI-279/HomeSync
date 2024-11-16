@@ -25,7 +25,7 @@
             flex-direction: column;
             justify-content: space-between;
             transition: width 0.3s;
-            padding: 20px 0; /* Top and bottom padding */
+            padding: 20px 0; 
         }
 
         .sidebar.minimized {
@@ -34,9 +34,9 @@
 
         .sidebar-header {
             display: flex;
-            justify-content: flex-end; /* Align to the right for maximized state */
-            padding: 10px; /* Add padding for better spacing */
-            position: relative; /* Required for absolute positioning of the button */
+            justify-content: flex-end; 
+            padding: 10px; 
+            position: relative; 
         }
 
         .toggle-button {
@@ -46,43 +46,43 @@
             color: #ffffff;
             padding: 15px;
             display: flex;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            position: absolute; /* Use absolute positioning */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Center the button */
+            align-items: center; 
+            justify-content: center; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%); 
         }
 
         .sidebar.minimized .toggle-button {
-            left: 50%; /* Center for hamburger icon */
-            transform: translateX(-50%); /* Center the button */
+            left: 50%; 
+            transform: translateX(-50%); 
         }
 
         .sidebar:not(.minimized) .toggle-button {
-            left: auto; /* Reset left for maximized state */
-            transform: translateX(0); /* Remove centering */
-            margin-right: 0px; /* Increase margin for more right alignment */
+            left: auto; 
+            transform: translateX(0); 
+            margin-right: 0px; 
         }
 
         .nav-links {
             display: flex;
             flex-direction: column;
-            align-items: center;  /* Center align links */
-            flex-grow: 1; /* Allow this section to grow */
-            justify-content: center; /* Center the nav items vertically */
+            align-items: center;  
+            flex-grow: 1; 
+            justify-content: center; 
         }
 
         .nav-links a {
             display: flex;
             align-items: center;
-            justify-content: center; /* Center align items in the link */
+            justify-content: center; 
             padding: 15px;
             color: #ffffff;
             text-decoration: none;
             transition: background-color 0.2s;
-            width: 100%; /* Full width for consistent button size */
-            box-sizing: border-box; /* Include padding in width */
-            min-width: 60px; /* Minimum width for consistency */
+            width: 100%; 
+            box-sizing: border-box; 
+            min-width: 60px; 
         }
 
         .nav-links a:hover {
@@ -90,21 +90,21 @@
         }
 
         .nav-links a .icon {
-            margin: 0; /* Remove margin for better alignment */
-            width: 24px; /* Fixed width for icon alignment */
-            text-align: center; /* Center the icon */
+            margin: 0; 
+            width: 24px; 
+            text-align: center; 
         }
 
         .sidebar-footer {
             padding: 15px;
             display: flex;
-            justify-content: center; /* Center the logout button */
+            justify-content: center; 
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
-                width: 200px; /* Full width on smaller screens */
+                width: 200px; 
             }
             .sidebar.minimized {
                 width: 60px;
@@ -115,7 +115,6 @@
             flex: 1;
             text-align: center;
             font-size: 20px;
-            /*margin-left: 60px;*/
         }
     </style>
 </head>
