@@ -56,8 +56,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             padding: 10px;
-            width: 220px; 
-            height: 50px; 
+            width: 220px;
+            height: 50px;
             margin-top: 20px;
             display: flex;
             align-items: center;
@@ -67,7 +67,7 @@
 
         .device h2 {
             margin: 0;
-            font-size: 16px; 
+            font-size: 16px;
             font-weight: normal;
         }
 
@@ -108,11 +108,11 @@
             transition: .4s;
         }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background-color: #74C0FC;
         }
 
-        input:checked + .slider:before {
+        input:checked+.slider:before {
             transform: translateX(14px);
         }
 
@@ -174,12 +174,13 @@
         }
 
         .window-curtains {
-            width: 300px; 
-            height: 50px; 
+            width: 300px;
+            height: 50px;
             display: flex;
-            flex-direction: row; 
-            align-items: center; 
+            flex-direction: row;
+            align-items: center;
             justify-content: flex-start;
+            background-color: rgba(34, 34, 34, 0.8);
         }
 
         .row {
@@ -205,7 +206,7 @@
 
         .climate-control h2 {
             margin: 0;
-            font-size: 16px; 
+            font-size: 16px;
             font-weight: normal;
         }
 
@@ -215,7 +216,7 @@
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
-            padding-left: 1.5px; 
+            padding-left: 1.5px;
         }
 
         .climate-control .temperature {
@@ -239,7 +240,7 @@
             flex-direction: column;
             align-items: center;
             position: absolute;
-            right: 12px; 
+            right: 12px;
             top: 50px;
         }
 
@@ -261,12 +262,12 @@
             background-color: #FCB074;
         }
 
-        .climate-control .control-buttons .arrow-up::before, 
+        .climate-control .control-buttons .arrow-up::before,
         .climate-control .control-buttons .arrow-down::before {
             content: '';
             display: block;
-            width: 0; 
-            height: 0; 
+            width: 0;
+            height: 0;
             border-style: solid;
             margin: auto;
         }
@@ -307,8 +308,200 @@
             padding: 5px;
             margin-left: 5px;
         }
+
+        #ambientLights {
+            background-color: rgba(34, 34, 34, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            width: 250px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            height: 100px;
+        }
+
+        #ambientLights h2 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        #ambientLights .device-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+
+        #ambientLights .pin-icon {
+            font-size: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #ambientLights .switch {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+        }
+
+        #ambientLights .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        #ambientLights .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 16px;
+        }
+
+        #ambientLights .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        #ambientLights input:checked+.slider {
+            background-color: #74C0FC;
+        }
+
+        #ambientLights input:checked+.slider:before {
+            transform: translateX(14px);
+        }
+
+        #ambientLights .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        #ambientLights .slider-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        #ambientLights .slider-label {
+            font-size: 13px;
+            margin-right: 16px;
+        }
+
+        #ambientLights .window-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #ccc;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            margin-right: 16px;
+            border-radius: 4px;
+        }
+
+        #ambientLights .window-slider:hover {
+            opacity: 1;
+        }
+
+        #ambientLights .window-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #74C0FC;
+            cursor: pointer;
+        }
+
+        #ambientLights .window-slider::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #74C0FC;
+            cursor: pointer;
+        }
+
+        #ambientLights .slider-value {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        #ambientLights .slider-value i {
+            margin-left: 5px;
+        }
+
+        #ambientLights .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        #ambientLights .dropdown-label {
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        #ambientLights .dropdown-select {
+            background-color: #595551;
+            border: none;
+            border-radius: 3px;
+            color: #ffffff;
+            padding: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #ambientLights .dropdown-select option {
+            background-color: #595551;
+            color: #ffffff;
+        }
+
+        #ambientLights .dropdown-select option[value="red"] {
+            color: red;
+        }
+
+        #ambientLights .dropdown-select option[value="blue"] {
+            color: blue;
+        }
+
+        #ambientLights .dropdown-select option[value="green"] {
+            color: green;
+        }
+
+        #ambientLights .dropdown-select option[value="yellow"] {
+            color: yellow;
+        }
+
+        #ambientLights .dropdown-select option:checked,
+        #ambientLights .dropdown-select option:hover {
+            background-color: inherit;
+            color: inherit;
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <a href="living-room.html" class="navbar-item">
@@ -334,7 +527,8 @@
     </nav>
 
     <div class="device" id="airPurifier">
-        <span class="pin-icon" id="pinIconAirPurifier"><i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i></span>
+        <span class="pin-icon" id="pinIconAirPurifier"><i class="fas fa-thumbtack"
+                style="transform: rotate(45deg);"></i></span>
         <h2>Air Purifier</h2>
         <label class="switch">
             <input type="checkbox">
@@ -343,9 +537,10 @@
     </div>
 
     <div class="device window-curtains" id="windowCurtains">
-        <span class="pin-icon" id="pinIconCurtains"><i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i></span>
+        <span class="pin-icon" id="pinIconCurtains"><i class="fas fa-thumbtack"
+                style="transform: rotate(45deg);"></i></span>
         <h2>Window Curtains</h2>
-        
+
         <div class="row slider-container">
             <span class="slider-label">Opened</span>
             <input type="range" min="0" max="100" value="50" class="window-slider" id="curtainSlider">
@@ -355,8 +550,11 @@
 
     <div class="climate-control" id="climateControl">
         <div class="device-header">
-            <span class="pin-icon" id="pinIconClimate"><i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i></span>
-            <h2 style="margin: 0; font-size: 16px; font-weight: normal; position: absolute; left: 45%; transform: translateX(-45%); top: 14.5px;">Climate Control</h2>
+            <span class="pin-icon" id="pinIconClimate"><i class="fas fa-thumbtack"
+                    style="transform: rotate(45deg);"></i></span>
+            <h2
+                style="margin: 0; font-size: 16px; font-weight: normal; position: absolute; left: 45%; transform: translateX(-45%); top: 14.5px;">
+                Climate Control</h2>
         </div>
 
         <label class="switch" style="position: absolute; top: 14.5px; right: 10px;">
@@ -420,6 +618,35 @@
         </div>
     </div>
 
+    <div class="device" id="ambientLights">
+        <div class="device-header">
+            <span class="pin-icon" id="pinIconAmbientLights"><i class="fas fa-thumbtack"
+                    style="transform: rotate(45deg);"></i></span>
+            <h2>Ambient Lights</h2>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="row slider-container">
+            <span class="slider-label">Brightness</span>
+            <input type="range" min="0" max="100" value="50" class="window-slider" id="brightnessSlider">
+            <span class="slider-value" id="brightnessValue">50%<i class="fas fa-sun"
+                    style="position: relative; top: -1px; margin-left: 7px;"></i></span>
+        </div>
+
+        <div class="dropdown-container">
+            <span class="dropdown-label">Color:</span>
+            <select class="dropdown-select">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+            </select>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         // Drag and drop for Air Purifier
@@ -433,7 +660,7 @@
             pinIconAirPurifier.innerHTML = isPinnedAirPurifier ? '<i class="fas fa-thumbtack"></i>' : '<i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>';
         }
 
-        airPurifier.addEventListener('mousedown', function(e) {
+        airPurifier.addEventListener('mousedown', function (e) {
             if (isPinnedAirPurifier) return;
             e.preventDefault();
             offset.x = e.clientX - airPurifier.getBoundingClientRect().left;
@@ -454,7 +681,7 @@
             document.addEventListener('mouseup', mouseUpHandler);
         });
 
-        pinIconAirPurifier.addEventListener('click', function(e) {
+        pinIconAirPurifier.addEventListener('click', function (e) {
             e.stopPropagation();
             togglePinAirPurifier();
         });
@@ -470,7 +697,7 @@
             pinIconCurtains.innerHTML = isPinnedCurtains ? '<i class="fas fa-thumbtack"></i>' : '<i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>';
         }
 
-        windowCurtains.addEventListener('mousedown', function(e) {
+        windowCurtains.addEventListener('mousedown', function (e) {
             if (isPinnedCurtains) return;
             e.preventDefault();
             offsetCurtains.x = e.clientX - windowCurtains.getBoundingClientRect().left;
@@ -491,7 +718,7 @@
             document.addEventListener('mouseup', mouseUpHandlerCurtains);
         });
 
-        pinIconCurtains.addEventListener('click', function(e) {
+        pinIconCurtains.addEventListener('click', function (e) {
             e.stopPropagation();
             togglePinCurtains();
         });
@@ -500,7 +727,7 @@
         const curtainSlider = document.getElementById('curtainSlider');
         const curtainValue = document.getElementById('curtainValue');
 
-        curtainSlider.addEventListener('input', function() {
+        curtainSlider.addEventListener('input', function () {
             curtainValue.textContent = `${curtainSlider.value}%`;
         });
 
@@ -515,7 +742,7 @@
             pinIconClimate.innerHTML = isPinnedClimate ? '<i class="fas fa-thumbtack"></i>' : '<i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>';
         }
 
-        climateControl.addEventListener('mousedown', function(e) {
+        climateControl.addEventListener('mousedown', function (e) {
             if (isPinnedClimate) return;
             e.preventDefault();
             offsetClimate.x = e.clientX - climateControl.getBoundingClientRect().left;
@@ -536,7 +763,7 @@
             document.addEventListener('mouseup', mouseUpHandlerClimate);
         });
 
-        pinIconClimate.addEventListener('click', function(e) {
+        pinIconClimate.addEventListener('click', function (e) {
             e.stopPropagation();
             togglePinClimate();
         });
@@ -553,23 +780,66 @@
             tempDisplay.textContent = currentTemp + '°';
         }
 
-        tempDown.addEventListener('click', function() {
+        tempDown.addEventListener('click', function () {
             updateTemperature(-1);
         });
 
-        tempUp.addEventListener('click', function() {
+        tempUp.addEventListener('click', function () {
             updateTemperature(1);
         });
 
-        turnOnTime.addEventListener('change', function() {
+        turnOnTime.addEventListener('change', function () {
             alert(`Auto Turn On set for ${turnOnTime.value}`);
             // Add logic to handle setting auto turn on
         });
 
-        turnOffTime.addEventListener('change', function() {
+        turnOffTime.addEventListener('change', function () {
             alert(`Auto Turn Off set for ${turnOffTime.value}`);
             // Add logic to handle setting auto turn off
         });
+        const ambientLights = document.getElementById('ambientLights');
+        const pinIconAmbientLights = document.getElementById('pinIconAmbientLights');
+        let offsetAmbientLights = { x: 0, y: 0 };
+        let isPinnedAmbientLights = false;
+
+        function togglePinAmbientLights() {
+            isPinnedAmbientLights = !isPinnedAmbientLights;
+            pinIconAmbientLights.innerHTML = isPinnedAmbientLights ? '<i class="fas fa-thumbtack"></i>' : '<i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>';
+        }
+
+        ambientLights.addEventListener('mousedown', function (e) {
+            if (isPinnedAmbientLights) return;
+            e.preventDefault();
+            offsetAmbientLights.x = e.clientX - ambientLights.getBoundingClientRect().left;
+            offsetAmbientLights.y = e.clientY - ambientLights.getBoundingClientRect().top;
+
+            function mouseMoveHandlerAmbientLights(e) {
+                ambientLights.style.position = 'absolute';
+                ambientLights.style.left = (e.clientX - offsetAmbientLights.x) + 'px';
+                ambientLights.style.top = (e.clientY - offsetAmbientLights.y) + 'px';
+            }
+
+            function mouseUpHandlerAmbientLights() {
+                document.removeEventListener('mousemove', mouseMoveHandlerAmbientLights);
+                document.removeEventListener('mouseup', mouseUpHandlerAmbientLights);
+            }
+
+            document.addEventListener('mousemove', mouseMoveHandlerAmbientLights);
+            document.addEventListener('mouseup', mouseUpHandlerAmbientLights);
+        });
+
+        pinIconAmbientLights.addEventListener('click', function (e) {
+            e.stopPropagation();
+            togglePinAmbientLights();
+        });
+
+        const brightnessSlider = document.getElementById('brightnessSlider');
+        const brightnessValue = document.getElementById('brightnessValue');
+
+        brightnessSlider.addEventListener('input', function () {
+            brightnessValue.innerHTML = `${brightnessSlider.value}% <i class="fas fa-sun" style="position: relative; top: -1px; margin-left: 7px;"></i>`
+        });
+
     </script>
 </body>
 </html>
