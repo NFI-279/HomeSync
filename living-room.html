@@ -52,13 +52,13 @@
         }
 
         .device {
-            background-color: rgba(34, 34, 34, 0.8);
+            /*background-color: rgba(34, 34, 34, 0.8);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             padding: 10px;
             width: 220px;
             height: 50px;
-            margin-top: 20px;
+            margin-top: 20px;*/
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -119,7 +119,8 @@
         .pin-icon {
             font-size: 20px;
             cursor: pointer;
-            margin-right: 10px;
+            top:10px; 
+            left:10px;
             user-select: none;
         }
 
@@ -526,28 +527,33 @@
         </a>
     </nav>
 
-    <div class="device" id="airPurifier">
-        <span class="pin-icon" id="pinIconAirPurifier"><i class="fas fa-thumbtack"
-                style="transform: rotate(45deg);"></i></span>
-        <h2>Air Purifier</h2>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-    </div>
-
-    <div class="device window-curtains" id="windowCurtains">
-        <span class="pin-icon" id="pinIconCurtains"><i class="fas fa-thumbtack"
-                style="transform: rotate(45deg);"></i></span>
-        <h2>Window Curtains</h2>
-
-        <div class="row slider-container">
-            <span class="slider-label">Opened</span>
-            <input type="range" min="0" max="100" value="50" class="window-slider" id="curtainSlider">
-            <span class="slider-value" id="curtainValue">50%</span>
+    <div class="device" id="airPurifier" style="background-color: rgba(34, 34, 34, 0.8); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); padding: 10px; width: 250px; margin-top: 20px; display: flex; flex-direction: column; position: relative; height: 24.5px;">
+        <div class="device-header" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <span class="pin-icon" id="pinIconAirPurifier" style="position: absolute; top: 10px; left: 10px; font-size: 20px; cursor: pointer; user-select: none;">
+                <i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>
+            </span>
+            <h2 style="margin: 0; font-size: 16px; font-weight: normal; position: absolute; left: 50%; transform: translateX(-50%); top: 14.5px;">Air Purifier</h2>
+            <label class="switch" style="position: absolute; top: 14.5px; right: 10px;">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
         </div>
     </div>
-
+    
+    <div class="device window-curtains" id="windowCurtains" style="background-color: rgba(34, 34, 34, 0.8); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); padding: 10px; width: 250px; margin-top: 20px; display: flex; flex-direction: column; position: relative;">
+        <div class="device-header" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <span class="pin-icon" id="pinIconCurtains" style="position: absolute; top: 10px; left: 10px; font-size: 20px; cursor: pointer; user-select: none;">
+                <i class="fas fa-thumbtack" style="transform: rotate(45deg);"></i>
+            </span>
+            <h2 style="margin: 0; font-size: 16px; font-weight: normal; position: absolute; left: 50%; transform: translateX(-50%); top: 14.5px;">Window Curtains</h2>
+        </div>
+        <div class="row slider-container" style="margin-top: 30px; width: 100%; display: flex; align-items: center;">
+            <span class="slider-label" style="font-size: 14px; margin-right: 16px;">Opened</span>
+            <input type="range" min="0" max="100" value="50" class="window-slider" id="curtainSlider" style="width: 100%; height: 4px; background: #ccc; outline: none; opacity: 0.7; transition: opacity 0.2s; margin-right: 16px; border-radius: 4px;">
+            <span class="slider-value" id="curtainValue" style="font-size: 14px;">50%</span>
+        </div>
+    </div>
+    
     <div class="climate-control" id="climateControl">
         <div class="device-header">
             <span class="pin-icon" id="pinIconClimate"><i class="fas fa-thumbtack"
