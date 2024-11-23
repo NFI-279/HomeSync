@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,104 +11,364 @@
         body {
             margin: 0;
             font-family: 'Overpass', sans-serif;
-            background-color: #0b0b0b; 
+            background-color: #0b0b0b;
+            color: #ffffff;
         }
-        /* Top bar styling */
+
         .top-bar {
-            height: 60px; 
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background-color: #121212; 
-            padding: 10px 40px; 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            justify-content: space-between;
+            background-color: #121212;
+            padding: 0 40px;
+            height: 70px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
-        /* Logo and title styling */
+
         .logo {
             display: flex;
             align-items: center;
         }
+
         .logo img {
-            width: 40px; 
+            width: 40px;
             height: auto;
-            margin-right: 10px; 
+            margin-right: 10px;
         }
+
         .title {
-            font-size: 24px; 
-            font-weight: bold; 
-            color: #ffffff; 
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
         }
-        .logo:hover, .title:hover{
+
+        .logo:hover,
+        .title:hover {
             cursor: pointer;
         }
-        /* Navbar styling */
+
+        .navbar-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
         .navbar {
             display: flex;
             justify-content: center;
-            flex-grow: 1; 
         }
+
         .navbar a {
-            margin: 0 20px; 
+            margin: 0 15px;
             text-decoration: none;
             color: #ffffff;
+            transition: color 0.3s ease;
         }
+
         .navbar a:hover {
-            text-decoration: underline; 
-            color: #74C0FC; 
+            text-decoration: underline;
+            color: #74C0FC;
         }
-        /* Login and sign up styling */
+
         .login-signup {
             display: flex;
             align-items: center;
         }
+
         .login-signup a {
-            margin-left: 20px;
+            margin-left: 15px;
             text-decoration: none;
             color: #ffffff;
-        }
-        .login-signup a:hover {
-            text-decoration: underline; 
-            color: #00bcd4; 
+            transition: color 0.3s ease;
         }
 
-        /* Responsive adjustments */
+        .login-signup a:hover {
+            text-decoration: underline;
+            color: #00bcd4;
+        }
+
+        .section {
+            padding: 100px 40px 60px 40px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #74C0FC;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features,
+        .subscriptions,
+        .devices,
+        .contact {
+            min-height: 100vh;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 300px;
+            background-color: #333;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            transition: transform 0.3s ease;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            color: #FCB074;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cccccc;
+            font-size: 16px;
+            flex-grow: 1;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+            color: #cccccc;
+            margin-top: 10px;
+            flex-grow: 1;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #74C0FC;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            /* Centers the button */
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #747CFC;
+        }
+
         @media (max-width: 768px) {
             .top-bar {
-                flex-direction: column; 
-                height: auto; 
-                padding: 10px 20px; 
+                flex-direction: column;
+                height: auto;
+                padding: 10px 20px;
             }
+
             .navbar {
-                margin: 10px 0; 
+                margin: 10px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navbar a {
+                margin: 5px 10px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
     <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
         function redirectToHome() {
             window.location.href = "index.html";
         }
-        function redirectToLogin(){
-            window.location.href = "login.html"
+
+        function redirectToLogin() {
+            window.location.href = "login.html";
         }
     </script>
-    <script src="js/index.js"></script>
 </head>
+
 <body>
     <div class="top-bar">
         <div class="logo" onclick="redirectToHome()">
             <img src="images/HomeIcon.svg" alt="HomeSync Logo">
             <div class="title">HomeSync</div>
         </div>
-        <div class="navbar">   
-            <a href="#" aria-label="Features">Features</a>
-            <a href="#" aria-label="Subscriptions">Subscriptions</a>
-            <a href="#" aria-label="Devices">Devices</a>
-            <a href="#" aria-label="Contact">Contact</a>
+        <div class="navbar-container">
+            <div class="navbar">
+                <a href="#features" onclick="scrollToSection('features')">Features</a>
+                <a href="#subscriptions" onclick="scrollToSection('subscriptions')">Subscriptions</a>
+                <a href="#devices" onclick="scrollToSection('devices')">Devices</a>
+                <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+            </div>
         </div>
-        <div class="login-signup" onclick="redirectToLogin()">
-            <a href="#" aria-label="Login" id="loginButton">Login</a>
-            <a href="#" aria-label="Sign Up" id="signupButton">Sign Up</a>
+        <div class="login-signup">
+            <a href="#" onclick="redirectToLogin()">Login</a>
+            <a href="#" style="margin-right: 80px; margin-left: 15px;" ;onclick="redirectToLogin()">Sign Up</a>
         </div>
     </div>
+
+    <section id="features" class="section features">
+        <h2>Features</h2>
+        <p>Discover the incredible features of HomeSync that make managing your smart home effortless.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>Easy Setup</h3>
+                <p>HomeSync offers a seamless setup process, allowing you to connect and manage all your devices
+                    effortlessly.</p>
+            </div>
+            <div class="card">
+                <h3>Voice Control</h3>
+                <p>Control your home with voice commands using popular voice assistants like Alexa, Google Assistant,
+                    and Siri.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Scenes</h3>
+                <p>Create custom scenes to automate your routines, from waking up to winding down, with just a single
+                    command.</p>
+            </div>
+            <div class="card">
+                <h3>Energy Monitoring</h3>
+                <p>Keep track of your energy usage and optimize your consumption with HomeSync's energy monitoring
+                    features.</p>
+            </div>
+            <div class="card">
+                <h3>Security Alerts</h3>
+                <p>Receive real-time security alerts to your smartphone, ensuring your home is always protected.</p>
+            </div>
+            <div class="card">
+                <h3>Device Integration</h3>
+                <p>HomeSync integrates with a wide range of devices, providing seamless control and automation for your
+                    smart home.</p>
+            </div>
+        </div>
+        <div class="placeholder-image">Feature Image Placeholder</div>
+    </section>
+
+    <section id="subscriptions" class="section subscriptions">
+        <h2>Subscriptions</h2>
+        <p>Choose the subscription plan that best suits your needs and enjoy premium smart home management.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>Free Plan</h3>
+                <p>Get started with the basics. Connect up to 3 devices and enjoy essential support.</p>
+                <ul>
+                    <li>Up to 3 devices</li>
+                    <li>Essential support</li>
+                    <li>Basic features</li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Standard Plan</h3>
+                <p>Unlock advanced features and connect up to 15 devices with priority support.</p>
+                <ul>
+                    <li>Up to 15 devices</li>
+                    <li>Priority support</li>
+                    <li>Advanced features</li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Premium Plan</h3>
+                <p>Experience unlimited devices, premium features, and 24/7 support.</p>
+                <ul>
+                    <li>Unlimited devices</li>
+                    <li>24/7 support</li>
+                    <li>Premium features</li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder-image">Subscription Image Placeholder</div>
+    </section>
+
+    <section id="devices" class="section devices">
+        <h2>Devices</h2>
+        <p>Explore the wide range of devices compatible with HomeSync and see how they can enhance your home.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>Smart Lights</h3>
+                <p>Control the brightness and color of your lights from your smartphone or via voice commands.</p>
+            </div>
+            <div class="card">
+                <h3>Thermostats</h3>
+                <p>Maintain the perfect temperature in your home with smart thermostats that learn your preferences.</p>
+            </div>
+            <div class="card">
+                <h3>Security Cameras</h3>
+                <p>Keep an eye on your home with real-time video monitoring and motion alerts.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Locks</h3>
+                <p>Enhance your home security with smart locks that you can control remotely from your smartphone.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Plugs</h3>
+                <p>Automate your appliances and control them remotely with smart plugs that are easy to set up.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Sensors</h3>
+                <p>Monitor your home environment with smart sensors that detect motion, temperature, and humidity.</p>
+            </div>
+        </div>
+        <div class="placeholder-image">Devices Image Placeholder</div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <p>Have questions? Get in touch with our support team for assistance and more information.</p>
+        <div class="placeholder-image">Contact Image Placeholder</div>
+    </section>
 </body>
 </html>
