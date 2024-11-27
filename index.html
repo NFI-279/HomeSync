@@ -221,7 +221,17 @@
         function redirectToLogin() {
             window.location.href = "login.html";
         }
+        document.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+                    document.title = section.getAttribute('data-title');
+                }
+            });
+        });
     </script>
+    <script src="js/tawkto.js"></script>
 </head>
 
 <body>
@@ -279,14 +289,9 @@
             </div>
         </div>
         <div style="position: relative; max-height: 80vh; width: 100%; aspect-ratio: 1; margin-top: 60px;">
-            <iframe 
-                src="https://app.supademo.com/embed/cm3yvbtyn0jnhvyqzdkqp6tip?embed_v=2" 
-                loading="lazy" 
-                title="Supademo Demo" 
-                allow="clipboard-write" 
-                frameborder="0" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                allowfullscreen>
+            <iframe src="https://app.supademo.com/embed/cm3yvbtyn0jnhvyqzdkqp6tip?embed_v=2" loading="lazy"
+                title="Supademo Demo" allow="clipboard-write" frameborder="0"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen>
             </iframe>
         </div>
     </section>
@@ -370,4 +375,5 @@
         <p>Have questions? Get in touch with our support team for assistance and more information.</p>
     </section>
 </body>
+
 </html>
